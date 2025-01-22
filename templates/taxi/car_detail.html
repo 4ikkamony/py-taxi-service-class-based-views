@@ -4,7 +4,7 @@
   <h1>Car №{{ car.id }}</h1>
   <div class="container">
     <p><strong>Model:</strong> {{ car.model }}</p>
-    <p><strong>Manufacturer:</strong> <a href="{% url 'taxi:manufacturer-detail' car.manufacturer.id %}">{{ car.manufacturer.name }}</a></p>
+    <p><strong>Manufacturer:</strong> <a href="{% url 'taxi:manufacturer-detail' pk=car.manufacturer.id %}">{{ car.manufacturer.name }}</a></p>
   </div>
   <div class="ml-3">
     <h3>Drivers:</h3>
@@ -20,7 +20,7 @@
         <tbody>
           {% for driver in car.drivers.all %}
             <tr>
-              <td><a href="{% url 'taxi:driver-detail' driver.id %}">{{ driver.username }}</a></td>
+              <td><a href="{% url 'taxi:driver-detail' pk=driver.id %}">{{ driver.username }}</a></td>
               <td>{{ driver.first_name }} {{ driver.last_name }}</td>
               <td>{{ driver.email }}</td>
             </tr>
